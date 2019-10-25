@@ -1,0 +1,73 @@
+.frame-head {
+    //position: absolute;
+    width     : 100%;
+    ;
+}
+
+.top-right-menu {
+    float: right;
+
+    .alarm {
+        float     : left;
+        //position: relative;
+
+
+    }
+
+    .help {
+        float: left;
+    }
+
+    .iconfont {
+        font-size: 2rem;
+    }
+
+    .badge {
+        font-size: 0.5rem;
+    }
+
+    .tip-title {
+        font-size   : 0.3rem;
+        text-align  : left;
+        padding-left: 0.25rem;
+    }
+
+    .nav-link {
+        color : black;
+        cursor: default;
+    }
+
+    .nav-link:hover {
+        background   : gainsboro;
+        border-radius: 0.25rem;
+    }
+}
+
+.frame-body {
+    width: 100%;
+}
+
+.left-menu {
+    float: left;
+
+    .nav-link {
+        padding: 0;
+    }
+
+    .iconfont {
+        font-size: 2.5rem;
+    }
+
+    .menu {
+        font-size     : 0.1rem;
+        padding-top   : 0;
+        padding-bottom: 0;
+        height        : 4.625rem;
+        border-color  : transparent;
+
+        .title {
+            position: relative;
+            bottom  : 0.625rem;
+        }
+    }
+}
