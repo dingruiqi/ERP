@@ -1,21 +1,13 @@
 .frame-head {
-    //position: absolute;
-    width     : 100%;
-    ;
-}
+    width              : 100%;
+    //background-image : url("src/assets/image/back4.jpg");
+    //background-repeat: no-repeat;
+    //background-size  : 100% 100%;
 
-.top-right-menu {
-    float: right;
-
-    .alarm {
-        float     : left;
-        //position: relative;
-
-
-    }
-
-    .help {
-        float: left;
+    .brand-title {
+        // position: relative;
+        // top     : 2.8rem;
+        font-weight: bold;
     }
 
     .iconfont {
