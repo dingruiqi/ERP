@@ -14,10 +14,10 @@ const routes: Routes = [{
 {
   path: "auth",
   // component: LoginComponent,
-  loadChildren: () => import("./module/auth/login.module").then(mod => mod.LoginModule)
+  loadChildren: () => import("./module/auth/auth.module").then(mod => mod.LoginModule)
 },
 {
-  path: "",
+  path: "**",
   redirectTo: '/home',
   pathMatch: 'full'
 }];
