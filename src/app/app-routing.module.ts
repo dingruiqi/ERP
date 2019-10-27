@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErpHomeComponent } from './layout-framework/erp-home/erp-home.component';
 import { AuthGuard } from './module/auth/auth.guard';
-import { LoginComponent } from './module/auth/login.component';
+import { LoginComponent } from './module/auth/login/login.component';
 
 
 const routes: Routes = [{
@@ -14,7 +14,7 @@ const routes: Routes = [{
 {
   path: "auth",
   // component: LoginComponent,
-  loadChildren: () => import("./module/auth/auth.module").then(mod => mod.LoginModule)
+  loadChildren: () => import("./module/auth/auth.module").then(mod => mod.AuthModule)
 },
 {
   path: "**",

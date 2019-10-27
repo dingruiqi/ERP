@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './login.component';
+import { LoginComponent } from './login/login.component';
 import { Routes, RouterModule } from '@angular/router';
 
 
@@ -24,4 +24,4 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class LoginModule { }
+export class AuthModule { }
