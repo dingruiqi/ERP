@@ -14,8 +14,13 @@ const routes: Routes = [{
   loadChildren: () => import("./module/auth/auth.module").then(mod => mod.AuthModule)
 },
 {
-  path: "systemDataHome",
+  path: "systemdatahome",
   loadChildren: () => import("./module/system-data-input/system-data-input.module").then(mod => mod.SystemDataInputModule)
+},
+{
+  path: "",
+  redirectTo: '/home',
+  pathMatch: 'full'
 },
 {
   path: "**",
