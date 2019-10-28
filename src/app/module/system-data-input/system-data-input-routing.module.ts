@@ -5,21 +5,21 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { AddProductTypeComponent } from './add-product-type/add-product-type.component';
 import { AddProductUnitComponent } from './add-product-unit/add-product-unit.component';
 import { SystemDataHomeComponent } from './system-data-home/system-data-home.component';
+import { AuthGuard } from '../auth/auth.guard';
 
 
 const routes: Routes = [
   {
     path: "systemDataHome", component: SystemDataHomeComponent,
+    //canActivate: [AuthGuard],
+    //canActivateChild: [AuthGuard],
     children: [
       { path: "productList", component: ProductInfoComponent },
       { path: "addProduct", component: AddProductComponent },
       { path: "addProductType", component: AddProductTypeComponent },
-      { path: "addProductUnit", component: AddProductUnitComponent },
-      { path: "**", redirectTo: "/systemDataHome" }
+      { path: "addProductUnit", component: AddProductUnitComponent }
     ]
   },
-
-  { path: "**", redirectTo: "/home" }
 ];
 
 @NgModule({

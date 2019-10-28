@@ -6,14 +6,16 @@ import { AuthGuard } from './module/auth/auth.guard';
 
 const routes: Routes = [{
   path: "home",
-  canActivate: [AuthGuard],
-  component: ErpHomeComponent,
-  //loadChildren()=>
+  //canActivate: [AuthGuard],
+  component: ErpHomeComponent
 },
 {
-  path: "auth",
-  // component: LoginComponent,
+  path: "login",
   loadChildren: () => import("./module/auth/auth.module").then(mod => mod.AuthModule)
+},
+{
+  path: "systemDataHome",
+  loadChildren: () => import("./module/system-data-input/system-data-input.module").then(mod => mod.SystemDataInputModule)
 },
 {
   path: "**",

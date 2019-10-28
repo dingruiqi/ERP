@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErpHomeComponent } from './layout-framework/erp-home/erp-home.component';
 import { AuthModule } from './module/auth/auth.module';
+import { SystemDataInputModule } from './module/system-data-input/system-data-input.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AuthModule } from './module/auth/auth.module';
   imports: [
     BrowserModule,
     AuthModule,
+    SystemDataInputModule,
     AppRoutingModule
   ],
   providers: [],
