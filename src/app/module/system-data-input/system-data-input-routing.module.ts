@@ -6,18 +6,20 @@ import { AddProductTypeComponent } from './add-product-type/add-product-type.com
 import { AddProductUnitComponent } from './add-product-unit/add-product-unit.component';
 import { SystemDataHomeComponent } from './system-data-home/system-data-home.component';
 import { AuthGuard } from '../auth/auth.guard';
+import { SystemSettingComponent } from './system-setting/system-setting.component';
 
 
 const routes: Routes = [
   {
     path: "", component: SystemDataHomeComponent,
-    //canActivate: [AuthGuard],
-    //canActivateChild: [AuthGuard],
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
       { path: "productlist", component: ProductInfoComponent },
       { path: "addproduct", component: AddProductComponent },
       { path: "addproducttype", component: AddProductTypeComponent },
-      { path: "addproductunit", component: AddProductUnitComponent }
+      { path: "addproductunit", component: AddProductUnitComponent },
+      { path: "systemsetting", component: SystemSettingComponent }
     ]
   },
 ];

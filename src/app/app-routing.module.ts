@@ -7,7 +7,7 @@ import { PageNotFoundComponent } from './layout-framework/page-not-found/page-no
 
 const routes: Routes = [{
   path: "home",
-  //canActivate: [AuthGuard],
+  canActivate: [AuthGuard],
   component: ErpHomeComponent
 },
 {
