@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErpHomeComponent } from './layout-framework/erp-home/erp-home.component';
 import { AuthGuard } from './module/auth/auth.guard';
+import { PageNotFoundComponent } from './layout-framework/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [{
@@ -24,8 +25,7 @@ const routes: Routes = [{
 },
 {
   path: "**",
-  redirectTo: '/home',
-  pathMatch: 'full'
+  component: PageNotFoundComponent
 }];
 
 @NgModule({
