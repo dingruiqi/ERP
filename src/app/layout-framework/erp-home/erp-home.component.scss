@@ -1,8 +1,15 @@
 .frame-head {
-    width              : 100%;
+    width: 100%;
+
     //background-image : url("src/assets/image/back4.jpg");
     //background-repeat: no-repeat;
     //background-size  : 100% 100%;
+    .navbar-brand {
+        img {
+            height: 5rem;
+            width : 5rem;
+        }
+    }
 
     .brand-title {
         // position: relative;
@@ -25,12 +32,12 @@
     }
 
     .nav-link {
-        color : black;
-        cursor: default;
+        //color : black;
+        cursor  : default;
     }
 
     .nav-link:hover {
-        background   : gainsboro;
+        background   : rgb(238, 238, 238);
         border-radius: 0.25rem;
     }
 }

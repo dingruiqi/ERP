@@ -1,9 +1,8 @@
 <div class="frame-head">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="assets/image/logo.png" width="80" height="80"
-                class="d-inline-block align-top" alt="">
-                <span class="brand-title align-bottom">丁丁科技</span>
+            <img src="assets/image/logo.png" class="d-inline-block align-top" alt="">
+            <span class="brand-title align-bottom">C&M</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,13 +11,29 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbarAlarmDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <span class="iconfont iconbaojingliebiao">
+                            <span *ngIf="alarmCount" class="badge badge-danger">{{alarmCount}}</span>
+                        </span>
+                        <div class="tip-title">预警</div>
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarAlarmDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <!-- <li class="nav-item ">
                     <a class="nav-link" href="#"><span class="iconfont iconbaojingliebiao">
                             <span *ngIf="alarmCount" class="badge badge-danger">{{alarmCount}}</span>
                         </span>
                         <div class="tip-title">预警</div>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="#"><span class="iconfont iconbangzhu ">
                         </span>
@@ -47,7 +62,7 @@
 </div>
 
 <div class="frame-body">
-    <div class="left-menu bg-success">
+    <div class="left-menu bg-light">
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link">

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./erp-home.component.scss']
 })
 export class ErpHomeComponent implements OnInit {
-
+  //alarmCount = 2;
   constructor() { }
 
   ngOnInit() {
