@@ -12,8 +12,8 @@ import { SystemSettingComponent } from './system-setting/system-setting.componen
 const routes: Routes = [
   {
     path: "", component: SystemDataHomeComponent,
-    canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
+    //canActivate: [AuthGuard],
+    //canActivateChild: [AuthGuard],
     children: [
       { path: "productlist", component: ProductInfoComponent },
       { path: "addproduct", component: AddProductComponent },
