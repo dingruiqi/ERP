@@ -8,16 +8,19 @@ import { PageNotFoundComponent } from './layout-framework/page-not-found/page-no
 const routes: Routes = [{
   path: "home",
   //canActivate: [AuthGuard],
-  component: ErpHomeComponent
+  component: ErpHomeComponent,
+  children: [
+    {
+      path: "systemdatahome",
+      loadChildren: () => import("./module/system-data-input/system-data-input.module").then(mod => mod.SystemDataInputModule)
+    }
+  ]
 },
 {
   path: "login",
   loadChildren: () => import("./module/auth/auth.module").then(mod => mod.AuthModule)
 },
-{
-  path: "systemdatahome",
-  loadChildren: () => import("./module/system-data-input/system-data-input.module").then(mod => mod.SystemDataInputModule)
-},
+
 {
   path: "",
   redirectTo: '/home',

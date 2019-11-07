@@ -1,2 +1,16 @@
 <p>system-data-home works!</p>
-<router-outlet></router-outlet>
+<a routerLink="productlist" routerLinkActive="active">Crisis Center</a>
+<br>
+<a routerLink="addproducttype" routerLinkActive="active">Heroes</a>
+<br>
+<a routerLink="addproduct" routerLinkActive="active">Admin</a>
+<br>
+
+<div>
+    <router-outlet></router-outlet>
+</div>
+<br>
+<a [routerLink]="[{outlets:{ aux1: ['addproductunit'] } }]">Contact</a>
+<button  (click)="go()">Contact1</button >
+    <button  (click)="go2()">Contact2</button >
+<router-outlet name="aux1"></router-outlet>

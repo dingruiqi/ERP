@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-system-data-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SystemDataHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
+  go(){
+    this.router.navigate([{outlets: {aux1: 'addproductunit'}}]);
+  }
+
+  go2(){
+    this.router.navigateByUrl('home/systemdatahome/addproductunit');
+  }
 }
