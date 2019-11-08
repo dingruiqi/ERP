@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./erp-home.component.scss']
 })
 export class ErpHomeComponent implements OnInit {
-  //alarmCount = 2;
+  alarmCount = 0;
   constructor() { }
 
   ngOnInit() {
   }
 
+  logout(){
+    console.log("logout");
+    
+  }
 }

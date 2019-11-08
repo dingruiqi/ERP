@@ -7,6 +7,11 @@ import { ErpHomeComponent } from './layout-framework/erp-home/erp-home.component
 import { PageNotFoundComponent } from './layout-framework/page-not-found/page-not-found.component';
 //import { AuthModule } from './module/auth/auth.module';
 //import { SystemDataInputModule } from './module/system-data-input/system-data-input.module';
+import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,13 @@ import { PageNotFoundComponent } from './layout-framework/page-not-found/page-no
     BrowserModule,
     //AuthModule,
     //SystemDataInputModule,
-    AppRoutingModule
+    NzPopoverModule,
+    NzButtonModule,
+    NzEmptyModule,
+    NzAvatarModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

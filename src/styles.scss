@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ng-zorro-antd/style/index.min.css"; /* 引入基本样式 */
+//@import "../node_modules/ng-zorro-antd/button/style/index.min.css"; /* 引入组件样式 */
+@import "../node_modules/ng-zorro-antd/popover/style/index.min.css";
+@import "../node_modules/ng-zorro-antd/empty/style/index.min.css";
+@import "../node_modules/ng-zorro-antd/avatar/style/index.min.css";

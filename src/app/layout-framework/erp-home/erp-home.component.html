@@ -1,5 +1,5 @@
 <div class="frame-head">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img src="assets/image/logo.png" class="d-inline-block align-top" alt="">
             <span class="brand-title align-bottom">C&M</span>
@@ -11,53 +11,54 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                        <button nz-button nz-popover nzType="primary" nzPopoverTitle="Title" nzPopoverContent="Content">
-                                Hover me
-                              </button>
-                </li>
-
-
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarAlarmDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" nz-popover [nzPopoverTitle]="alarmTitleTemplate"
+                        [nzPopoverContent]="alarmContentTemplate" nzPopoverPlacement="bottom" nzPopoverTrigger="click">
                         <span class="iconfont iconbaojingliebiao">
                             <span *ngIf="alarmCount" class="badge badge-danger">{{alarmCount}}</span>
                         </span>
                         <div class="tip-title">预警</div>
                     </a>
 
-                    <div class="dropdown-menu" aria-labelledby="navbarAlarmDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                    <ng-template #alarmTitleTemplate><span *ngIf="alarmCount==0"><span
+                                class="iconfont iconzhengchang text-success"></span>系统正常</span><span
+                            *ngIf="alarmCount!=0"><span class="iconfont iconcuowu text-danger"></span>系统预警</span>
+                    </ng-template>
+                    <ng-template #alarmContentTemplate><span *ngIf="alarmCount==0">
+                            <nz-empty [nzNotFoundContent]="emptyContent"></nz-empty>
+                        </span><span *ngIf="alarmCount!=0">吧啦吧啦</span></ng-template>
+                    <ng-template #emptyContent>
+                        <span class="text-success" style="font-size: 0.7rem;">各项指标正常，没有异常需要处理</span>
+                    </ng-template>
                 </li>
-                <!-- <li class="nav-item ">
-                    <a class="nav-link" href="#"><span class="iconfont iconbaojingliebiao">
-                            <span *ngIf="alarmCount" class="badge badge-danger">{{alarmCount}}</span>
-                        </span>
-                        <div class="tip-title">预警</div>
-                    </a>
-                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="#"><span class="iconfont iconbangzhu ">
                         </span>
                         <div class="tip-title">帮助</div>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                <li class="nav-item dropdown mt-auto mb-auto account-menu">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" nz-popover
+                        [nzPopoverTitle]="userTitleTemplate" [nzPopoverContent]="userContentTemplate"
+                        nzPopoverPlacement="bottomRight" nzPopoverTrigger="click">
+                        <nz-avatar nzSize="large" nzIcon="user"
+                            nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+                        <span>丁丁</span>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                    <ng-template #userTitleTemplate>
+                        <div class="account-title text-primary"><a>修改密码</a></div>
+                    </ng-template>
+                    <ng-template #userContentTemplate>
+                        <div class="account-content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">1</div>
+                                    <div class="col">2</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-danger btn-sm iconfont iconzhuxiao" (click)="logout()">注销</button>
+                        </div>
+                    </ng-template>
                 </li>
             </ul>
             <!-- <form class="form-inline my-2 my-lg-0">
@@ -122,6 +123,7 @@
         </ul>
     </div>
     <div class="content">
+        <div style="display: flex;">ssss</div>
         <router-outlet></router-outlet>
     </div>
     <div class="clearfix"></div>
