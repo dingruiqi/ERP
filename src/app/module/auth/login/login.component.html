@@ -1,9 +1,13 @@
 <div class="signin-container">
+  <div class="h3">{{authService.systemInfo.corporationName}}#产销存系统</div>
   <form class="form-signin" #signinForm="ngForm" (ngSubmit)="onSubmit(signinForm)">
-    <img class="mb-4" src="assets/image/login.jpg" alt="" width="72" height="72">
+    <div class="login-img">
+      <img src="assets/image/Login.jpg" alt="" height="100%">
+    </div>
+
     <h1 class="h3 mb-3 font-weight-normal">请&nbsp;&nbsp;登&nbsp;&nbsp;录</h1>
     <label for="inputUserName" class="sr-only">用户名</label>
-    <input type="text" id="inputUserName" name="user.userName" #inputName="ngModel" [(ngModel)]="userName"
+    <input type="text" id="inputUserName" name="userName" #inputName="ngModel" [(ngModel)]="userName"
       class="form-control" placeholder="用户名" required title="长度不超过10的中英文" maxlength="10" minlength="2" autofocus>
     <!-- <div *ngIf="inputName.invalid && (inputName.dirty || inputName.touched)" class="alert alert-danger error-info">
       <div *ngIf="inputName.errors.required">
@@ -17,7 +21,7 @@
       </div>
     </div> -->
     <label for="inputPassword" class="sr-only">密码</label>
-    <input type="password" id="inputPassword" #password="ngModel" name="password" [(ngModel)]="user.password"
+    <input type="password" id="inputPassword" #inputPassword="ngModel" name="password" [(ngModel)]="password"
       class="form-control" placeholder="密码" required minlength="6" maxlength="20">
     <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger error-info">
       <div *ngIf="password.errors.required">

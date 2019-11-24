@@ -12,6 +12,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     //AuthModule,
     //SystemDataInputModule,
     NzPopoverModule,
@@ -29,7 +31,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NzAvatarModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
