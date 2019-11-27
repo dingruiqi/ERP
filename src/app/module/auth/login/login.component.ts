@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     //this.message = 'Trying to log in ...';
 
-    this.authService.login().subscribe(() => {
+    this.authService.login(this.userName, this.password).subscribe(() => {
       //this.setMessage();
       if (this.authService.isLoggedIn) {
         //还要加上公司信息
@@ -35,6 +35,16 @@ export class LoginComponent implements OnInit {
         // Redirect the user
         this.router.navigateByUrl(redirect);
       }
-    });
+      else {
+
+      }
+    },
+      err => {
+        console.error(err);
+      },
+      () => {
+        console.log("login complete");
+      }
+    );
   }
 }

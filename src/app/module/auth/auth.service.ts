@@ -19,20 +19,46 @@ export class AuthService {
   user: User = new User();
   systemInfo: SystemInfo = new SystemInfo();
 
+  message: string;
+
   constructor(private httpClientHelper: HttpclienthelperService) { }
 
-  login(): Observable<boolean> {
-    //https://blog.csdn.net/qq_35592166/article/details/78281030
-    let url: string = "api/Privilege/user/";
-    this.httpClientHelper.apiGet<Result>(url).subscribe(next => {
-      if (next.state == 0) {
+  login(userName: string, password: string): Observable<boolean> {
+    let url: string = "api/Privilege/auth/";
 
-      }
-      else {
+    return Observable.create(observer => {
+      try {
+        this.httpClientHelper.apiPost<Result>(url, null, { userName: userName, password: password }).subscribe(next => {
+          if (next.state == 0) {
+            this.isLoggedIn = true;
+            this.user = next.data;
+          }
+          else {
+            //observer.error(next.message);
+            this.isLoggedIn = false;
+          }
 
+          this.message = next.message;
+
+          observer.next(true);
+          observer.complete();
+        }, error => {
+          this.message = error;
+
+          observer.error(false);
+          observer.complete();
+        });
+
+      } catch (e) {
+        this.message = e.message;
+
+        observer.error(false);
+        observer.complete();
       }
+
     });
-    return of(true);//调用api获取验证
+
+    //eturn of(true);//调用api获取验证
   }
 
   logout(): void {
