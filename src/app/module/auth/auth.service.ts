@@ -4,6 +4,7 @@ import { User } from 'src/app/model/user';
 import { SystemInfo } from 'src/app/model/system-info';
 import { HttpclienthelperService } from 'src/app/common/webAPI/httpclienthelper.service';
 import { Result } from 'src/app/model/result';
+import { CryptogramHelpService } from 'src/app/common/cryptogram/cryptogram-help.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,10 +22,12 @@ export class AuthService {
 
   message: string;
 
-  constructor(private httpClientHelper: HttpclienthelperService) { }
+  constructor(private httpClientHelper: HttpclienthelperService, private cryptogramHelper: CryptogramHelpService) { }
 
   login(userName: string, password: string): Observable<boolean> {
     let url: string = "api/Privilege/auth/";
+
+    password = this.cryptogramHelper.md5Hash(password);
 
     return Observable.create(observer => {
       try {
