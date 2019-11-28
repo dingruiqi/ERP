@@ -34,7 +34,8 @@ export class AuthService {
         this.httpClientHelper.apiPost<Result>(url, null, { userName: userName, password: password }).subscribe(next => {
           if (next.state == 0) {
             this.isLoggedIn = true;
-            this.user = next.data;
+            this.user = next.data.user;
+            this.token = next.data.token;
           }
           else {
             //observer.error(next.message);
@@ -61,10 +62,14 @@ export class AuthService {
 
     });
 
-    //eturn of(true);//调用api获取验证
+    //return of(true);//调用api获取验证
   }
 
   logout(): void {
     this.isLoggedIn = false;
+    this.token = "";
+    this.user = null;
+    this.message = "";
+    this.redirectUrl = "";
   }
 }

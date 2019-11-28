@@ -62,11 +62,12 @@
 }
 
 .frame-body {
-    width: 100%;
+    width  : 100%;
+    display: flex;
 }
 
 .left-menu {
-    float: left;
+    min-width: 4.625rem;
 
     .nav-link {
         padding: 0;
@@ -91,5 +92,5 @@
 }
 
 .content {
-    float: left;
+    width: 100%;
 }

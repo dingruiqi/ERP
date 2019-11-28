@@ -39,6 +39,8 @@
         <input type="checkbox" value="remember-me">记住我
       </label>
     </div>
+    <div *ngIf="loginErrorMessage!=null && loginErrorMessage!=undefined && loginErrorMessage!=''">
+      <label class="text-danger">{{loginErrorMessage}}</label></div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="signinForm.invalid">登录</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
   </form>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/module/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-erp-home',
@@ -7,13 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErpHomeComponent implements OnInit {
   alarmCount = 0;
-  constructor() { }
+
+  constructor(public authService: AuthService,
+    private router: Router) {
+  }
 
   ngOnInit() {
   }
 
-  logout(){
-    console.log("logout");
+  logout() {
+    this.authService.logout();
+    this.router.navigateByUrl("/login");
+  }
+
+  modifyPassword() {
     
   }
 }

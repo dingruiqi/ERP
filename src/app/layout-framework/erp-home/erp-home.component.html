@@ -43,10 +43,10 @@
                         nzPopoverPlacement="bottomRight" nzPopoverTrigger="click">
                         <nz-avatar nzSize="large" nzIcon="user"
                             nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
-                        <span>丁丁</span>
+                        <span>{{authService.user.userName}}</span>
                     </a>
                     <ng-template #userTitleTemplate>
-                        <div class="account-title text-primary"><a>修改密码</a></div>
+                        <div class="account-title text-primary"><a (click)="modifyPassword()">修改密码</a></div>
                     </ng-template>
                     <ng-template #userContentTemplate>
                         <div class="account-content">
@@ -56,7 +56,7 @@
                                     <div class="col">2</div>
                                 </div>
                             </div>
-                            <button class="btn btn-danger btn-sm iconfont iconzhuxiao" (click)="logout()">注销</button>
+                            <button class="btn btn-danger btn-sm iconfont iconzhuxiao" (click)="logout()">安全退出</button>
                         </div>
                     </ng-template>
                 </li>

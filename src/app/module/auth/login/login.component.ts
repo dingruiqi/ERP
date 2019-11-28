@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   userName: string;
   password: string;
 
+  loginErrorMessage: string;
+
   constructor(private titleService: Title,
     public authService: AuthService,
     private router: Router) { }
@@ -36,11 +38,12 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl(redirect);
       }
       else {
-
+        this.loginErrorMessage = this.authService.message;
       }
     },
       err => {
         console.error(err);
+        this.loginErrorMessage = err;
       },
       () => {
         console.log("login complete");
