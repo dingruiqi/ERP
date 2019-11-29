@@ -123,8 +123,21 @@
         </ul>
     </div>
     <div class="content">
-        <div style="display: flex;">ssss</div>
-        <router-outlet></router-outlet>
+        <nz-tabset [nzSize]="'small'" [nzType]="'card'" [nzSelectedIndex]="focusedTabIndex">
+            <nz-tab *ngFor="let tab of tabs" [nzTitle]="titleTemplate">
+                <ng-template #titleTemplate>
+                    <div>{{ tab.tabName }}<i nz-icon nzType="close" class="ant-tabs-close-x"
+                            (click)="closeTab(tab)"></i></div>
+                </ng-template>
+                <!-- <div *ngIf="tab.tabName=='首页'"><app-welcome></app-welcome></div>
+                <div *ngIf="tab.tabName=='新手指引'"><app-guide></app-guide></div> -->
+                Content of {{ tab.tabContent }}
+                <div><a [routerLink]="[{ outlets: { welcome: ['welcome'] } }]">ssfs</a></div>
+                <div *ngIf="tab.tabContent=='welcome'">
+                    <router-outlet name="welcome"></router-outlet>
+                </div>
+            </nz-tab>
+        </nz-tabset>
+
     </div>
-    <div class="clearfix"></div>
 </div>

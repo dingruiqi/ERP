@@ -10,11 +10,29 @@ import { Router } from '@angular/router';
 export class ErpHomeComponent implements OnInit {
   alarmCount = 0;
 
+  focusedTabIndex = 0;//正在激活的tab索引
+  tabs = [{ tabName: '首页', tabContent: 'welcome' },
+  { tabName: '新手指引', tabContent: 'guide' }];
+
   constructor(public authService: AuthService,
     private router: Router) {
   }
 
   ngOnInit() {
+  }
+
+
+  closeTab(tab: string): void {
+    let index = this.tabs.findIndex(t => t.tabName == tab);
+    if (index != -1) {
+      this.tabs.splice(index, 1);
+    }
+
+  }
+
+  newTab(tabName: string): void {
+    this.tabs.push({ tabName: tabName, tabContent: 'abc' });
+    this.focusedTabIndex = this.tabs.length - 1;
   }
 
   logout() {
@@ -23,6 +41,6 @@ export class ErpHomeComponent implements OnInit {
   }
 
   modifyPassword() {
-    
+
   }
 }
