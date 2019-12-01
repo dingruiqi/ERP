@@ -7,11 +7,10 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { AddProductTypeComponent } from './add-product-type/add-product-type.component';
 import { AddProductUnitComponent } from './add-product-unit/add-product-unit.component';
 import { SystemDataHomeComponent } from './system-data-home/system-data-home.component';
-import { SystemSettingComponent } from './system-setting/system-setting.component';
 
 
 @NgModule({
-  declarations: [ProductInfoComponent, AddProductComponent, AddProductTypeComponent, AddProductUnitComponent, SystemDataHomeComponent, SystemSettingComponent],
+  declarations: [ProductInfoComponent, AddProductComponent, AddProductTypeComponent, AddProductUnitComponent, SystemDataHomeComponent],
   imports: [
     CommonModule,
     SystemDataInputRoutingModule

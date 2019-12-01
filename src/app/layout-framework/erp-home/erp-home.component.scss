@@ -67,7 +67,51 @@
 }
 
 .left-menu {
-    min-width: 4.625rem;
+    width: 4.89rem;
+
+    .nav-item {
+
+        .arrow {
+            position    : relative;
+            bottom      : 3rem;
+            left        : 3.5rem;
+            width       : 0;
+            height      : 0;
+            border-width: 0.5rem;
+            border-style: solid;
+            border-color: transparent #e9eef2 transparent transparent;
+            display     : none;
+        }
+
+        .second-menu {
+            position    : absolute;
+            top         : 25rem;
+            left        : 4.625rem;
+            display     : none;
+            background  : #e9eef2;
+            font-size   : 0.075rem;
+            border      : 1px solid #ccd1d5;
+            border-width: 0 1px 1px 0;
+            border-top  : 3px solid #29794b;
+            box-shadow  : 3px 3px 10px rgba(0, 0, 0, 0.3);
+            overflow    : hidden;
+            line-height : 2rem;
+
+            .second-menu-title {
+                font-size    : 0.85rem;
+                color        : rgb(66, 66, 66);
+                border-bottom: 1px solid rgba(86, 61, 124, 0.2);
+            }
+
+            .second-menu-content {
+                margin-left: 0.1rem;
+            }
+        }
+
+        .second-menu-sysset {
+            width: 300px;
+        }
+    }
 
     .nav-link {
         padding: 0;
@@ -89,8 +133,44 @@
             bottom  : 0.625rem;
         }
     }
+
+    .nav-item:hover .arrow {
+        display: block;
+    }
+
+    .nav-item:hover .second-menu {
+        display: block;
+    }
 }
 
 .content {
     width: 100%;
 }
+
+
+
+
+// ::ng-deep .ant-popover-title {
+//     background  : #e9eef2;
+//     border      : 1px solid #ccd1d5;
+//     border-width: 0 1px 1px 0;
+//     border-top  : 3px solid #29794b;
+//     box-shadow  : 3px 3px 10px rgba(0, 0, 0, 0.3);
+//     overflow    : hidden;
+// }
+
+// ::ng-deep .ant-popover-inner-content {
+//     background     : #e9eef2;
+//     border         : 1px solid #ccd1d5;
+//     border-width   : 0 1px 1px 0;
+//     // border-top  : 3px solid #29794b;
+//     box-shadow     : 3px 3px 10px rgba(0, 0, 0, 0.3);
+//     overflow       : hidden;
+// }
+
+// ::ng-deep .ant-popover-arrow {
+//     background  : #e9eef2;
+//     border      : 1px solid #ccd1d5;
+//     border-width: 0 1px 1px 0;
+//     box-shadow  : 3px 3px 10px rgba(0, 0, 0, 0.3);
+// }

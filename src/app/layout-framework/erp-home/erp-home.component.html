@@ -1,5 +1,5 @@
 <div class="frame-head">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
             <img src="assets/image/logo.png" class="d-inline-block align-top" alt="">
             <span class="brand-title align-bottom">C&M</span>
@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link" nz-popover [nzPopoverTitle]="alarmTitleTemplate"
+                    <a class="nav-link text-light" nz-popover [nzPopoverTitle]="alarmTitleTemplate"
                         [nzPopoverContent]="alarmContentTemplate" nzPopoverPlacement="bottom" nzPopoverTrigger="click">
                         <span class="iconfont iconbaojingliebiao">
                             <span *ngIf="alarmCount" class="badge badge-danger">{{alarmCount}}</span>
@@ -32,13 +32,13 @@
                     </ng-template>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="iconfont iconbangzhu ">
+                    <a class="nav-link text-light" href="#"><span class="iconfont iconbangzhu ">
                         </span>
                         <div class="tip-title">帮助</div>
                     </a>
                 </li>
                 <li class="nav-item dropdown mt-auto mb-auto account-menu">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" nz-popover
+                    <a class="nav-link dropdown-toggle text-light" id="navbarDropdown" role="button" nz-popover
                         [nzPopoverTitle]="userTitleTemplate" [nzPopoverContent]="userContentTemplate"
                         nzPopoverPlacement="bottomRight" nzPopoverTrigger="click">
                         <nz-avatar nzSize="large" nzIcon="user"
@@ -56,7 +56,7 @@
                                     <div class="col">2</div>
                                 </div>
                             </div>
-                            <button class="btn btn-danger btn-sm iconfont iconzhuxiao" (click)="logout()">安全退出</button>
+                            <button class="btn btn-danger btn-sm iconfont iconzhuxiao" (click)="logout()">注销</button>
                         </div>
                     </ng-template>
                 </li>
@@ -117,27 +117,80 @@
                     <button class="btn btn-light bg-transparent menu-item">
                         <span class="iconfont iconorder-setting"></span>
                         <div class="title">系统设置</div>
+
+                        <!-- <ng-template #systemSetTitleTemplate>
+                            <div>系统设置</div>
+                        </ng-template>
+                        <ng-template #systemSetContentTemplate>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">参数设置</div>
+                                    <div class="col">我的账户</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">设置产品</div>
+                                    <div class="col"><a [routerLink]="['systemsetting']">企业资料维护</a></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">员工管理</div>
+                                </div>
+                            </div>
+                        </ng-template> -->
                     </button>
                 </a>
+                <div class="arrow"></div>
+                <div class="second-menu second-menu-sysset">
+                    <div class="container">
+                        <div class="row second-menu-title">
+                            <div class="col">参数设置</div>
+                            <div class="col">我的账户</div>
+                        </div>
+                        <div class="row second-menu-content">
+                            <div class="col">业务设置</div>
+                            <div class="col"><a [routerLink]="['systemsetting']">企业资料维护</a></div>
+                        </div>
+                        <div class="row second-menu-title">
+                            <div class="col">员工管理</div>
+                            <div class="col"></div>
+                        </div>
+                        <div class="row second-menu-content">
+                            <div class="col">员工管理</div>
+                            <div class="col"></div>
+                        </div>
+                        <div class="row second-menu-content">
+                            <div class="col">权限管理</div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>
     <div class="content">
-        <nz-tabset [nzSize]="'small'" [nzType]="'card'" [nzSelectedIndex]="focusedTabIndex">
+        <!-- <nz-tabset [nzSize]="'small'" [nzType]="'card'" [nzSelectedIndex]="focusedTabIndex">
             <nz-tab *ngFor="let tab of tabs" [nzTitle]="titleTemplate">
                 <ng-template #titleTemplate>
                     <div>{{ tab.tabName }}<i nz-icon nzType="close" class="ant-tabs-close-x"
                             (click)="closeTab(tab)"></i></div>
                 </ng-template>
-                <!-- <div *ngIf="tab.tabName=='首页'"><app-welcome></app-welcome></div>
-                <div *ngIf="tab.tabName=='新手指引'"><app-guide></app-guide></div> -->
                 Content of {{ tab.tabContent }}
                 <div><a [routerLink]="[{ outlets: { welcome: ['welcome'] } }]">ssfs</a></div>
                 <div *ngIf="tab.tabContent=='welcome'">
                     <router-outlet name="welcome"></router-outlet>
                 </div>
             </nz-tab>
-        </nz-tabset>
+        </nz-tabset> -->
+        <nav class="navbar navbar-light bg-light m-3 justify-content-start">
+            <i nz-icon nzType="home"></i>
+            <nz-breadcrumb [nzAutoGenerate]="true">
+                <!-- <nz-breadcrumb-item>
+                    <a [routerLink]="['.']">首页</a>
+                </nz-breadcrumb-item> -->
+            </nz-breadcrumb>
+        </nav>
 
+        <div class="m-3">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>

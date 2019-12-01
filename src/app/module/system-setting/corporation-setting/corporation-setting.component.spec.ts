@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SystemSettingComponent } from './system-setting.component';
+import { CorporationSettingComponent } from './corporation-setting.component';
 
-describe('SystemSettingComponent', () => {
-  let component: SystemSettingComponent;
-  let fixture: ComponentFixture<SystemSettingComponent>;
+describe('CorporationSettingComponent', () => {
+  let component: CorporationSettingComponent;
+  let fixture: ComponentFixture<CorporationSettingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SystemSettingComponent ]
+      declarations: [ CorporationSettingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SystemSettingComponent);
+    fixture = TestBed.createComponent(CorporationSettingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

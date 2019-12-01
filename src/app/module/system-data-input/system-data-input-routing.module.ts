@@ -6,7 +6,6 @@ import { AddProductTypeComponent } from './add-product-type/add-product-type.com
 import { AddProductUnitComponent } from './add-product-unit/add-product-unit.component';
 import { SystemDataHomeComponent } from './system-data-home/system-data-home.component';
 import { AuthGuard } from '../auth/auth.guard';
-import { SystemSettingComponent } from './system-setting/system-setting.component';
 
 
 const routes: Routes = [
@@ -19,7 +18,6 @@ const routes: Routes = [
       { path: "addproduct", component: AddProductComponent },
       { path: "addproducttype", component: AddProductTypeComponent },
       { path: "addproductunit", component: AddProductUnitComponent },
-      { path: "systemsetting", component: SystemSettingComponent }
     ]
   },
 ];

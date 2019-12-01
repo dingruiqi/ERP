@@ -11,19 +11,35 @@ const routes: Routes = [{
   path: "home",
   //canActivate: [AuthGuard],
   component: ErpHomeComponent,
+  data: {
+    breadcrumb: '首页'
+  },
   children: [
     {
-      path: "welcome",
+      path: "",
       component: WelcomeComponent,
-      outlet: 'welcome'
+      //outlet: 'content'
     },
     {
       path: "guide",
-      component: GuideComponent
+      component: GuideComponent,
+      data: {
+        breadcrumb: '新手引导'
+      },
     },
     {
       path: "systemdatahome",
-      loadChildren: () => import("./module/system-data-input/system-data-input.module").then(mod => mod.SystemDataInputModule)
+      loadChildren: () => import("./module/system-data-input/system-data-input.module").then(mod => mod.SystemDataInputModule),
+      data: {
+        breadcrumb: '基础资料'
+      },
+    },
+    {
+      path: "systemsetting",
+      loadChildren: () => import("./module/system-setting/system-setting.module").then(mod => mod.SystemSettingModule),
+      data: {
+        breadcrumb: '系统设置'
+      },
     }
   ]
 },
@@ -34,7 +50,7 @@ const routes: Routes = [{
 
 {
   path: "",
-  redirectTo: '/home',
+  redirectTo: 'home',
   pathMatch: 'full'
 },
 {
