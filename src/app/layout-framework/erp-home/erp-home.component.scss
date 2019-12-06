@@ -67,7 +67,7 @@
 }
 
 .left-menu {
-    width: 4.89rem;
+    min-width: 4.625rem;
 
     .nav-item {
 
@@ -104,7 +104,7 @@
             }
 
             .second-menu-content {
-                margin-left: 0.1rem;
+                margin-left: -0.5rem;
             }
         }
 

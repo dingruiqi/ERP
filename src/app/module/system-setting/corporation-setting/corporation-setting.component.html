@@ -1,1 +1,61 @@
-<p>corporation-setting works!</p>
+<div>
+    <nz-tabset>
+        <nz-tab nzTitle="企业资料维护">
+            <form #corporationForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="container">
+                    <div class="form-row form-group justify-content-around">
+                        <label class="col-form-label col-lg-1 col-2" for="corporationCode">商户代码</label>
+                        <div class="col-3">
+                            <input class="form-control" id="corporationCode" name="corporationCode"
+                                [(ngModel)]='corporationInfo.corporationCode' readonly>
+                        </div>
+
+                        <label class="col-form-label col-lg-1 col-2 offset-lg-4" for="userNum">用户数</label>
+                        <div class="col-3">
+                            <input class="form-control" id="userNum" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-group justify-content-around">
+                        <label class="col-form-label col-lg-1 col-2" for="corporationName"><span
+                                class="text-danger">*</span>商户名称</label>
+                        <div class="col-3">
+                            <input class="form-control" id="corporationName" name="corporationName"
+                                [(ngModel)]='corporationInfo.corporationName' #corporationNameInput="ngModel" required
+                                minlength="1" maxlength="15">
+                        </div>
+
+                        <label class="col-form-label col-lg-1 col-2 offset-lg-4" for="corporationAddress">商户地址</label>
+                        <div class="col-3">
+                            <input class="form-control" id="corporationAddress" name="corporationAddress"
+                                [(ngModel)]='corporationInfo.corporationAddress' #corporationAddressInput="ngModel"
+                                required minlength="1" maxlength="15">
+                        </div>
+                    </div>
+
+                    <div class="form-row form-group justify-content-around">
+                        <label class="col-form-label col-lg-1 col-2" for="adminName"><span
+                                class="text-danger">*</span>管理员名字</label>
+                        <div class="col-3">
+                            <input class="form-control" id="adminName" name="adminName"
+                                [(ngModel)]='corporationInfo.adminName' #corporationNameInput="ngModel" required
+                                minlength="1" maxlength="15">
+                        </div>
+
+                        <label class="col-form-label col-lg-1 col-2 offset-lg-4" for="corporationWeb">网址</label>
+                        <div class="col-3">
+                            <input class="form-control" id="corporationWeb" name="corporationWeb"
+                                [(ngModel)]='corporationInfo.webAddress' #corporationWebInput="ngModel">
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center"><button type="submit" class="btn btn-success"
+                            [disabled]="!corporationForm.valid">保存</button></div>
+
+                </div>
+            </form>
+        </nz-tab>
+        <nz-tab nzTitle="企业Logo">
+            Content of Tab Pane 2
+        </nz-tab>
+    </nz-tabset>
+</div>

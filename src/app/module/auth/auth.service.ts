@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { User } from 'src/app/model/user';
-import { SystemInfo } from 'src/app/model/system-info';
+//import { SystemInfo } from 'src/app/model/system-info';
 import { HttpclienthelperService } from 'src/app/common/webAPI/httpclienthelper.service';
 import { Result } from 'src/app/model/result';
 import { CryptogramHelpService } from 'src/app/common/cryptogram/cryptogram-help.service';
@@ -15,10 +15,10 @@ export class AuthService {
 
   redirectUrl: string;
 
-  private token: string;
+  token: string;
 
   user: User = new User();
-  systemInfo: SystemInfo = new SystemInfo();
+  //systemInfo: SystemInfo = new SystemInfo();
 
   message: string;
 

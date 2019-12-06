@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../auth/auth.service';
+import { SystemInfo } from 'src/app/model/system-info';
+import { HttpclienthelperService } from 'src/app/common/webAPI/httpclienthelper.service';
+import { Result } from 'src/app/model/result';
 
 @Component({
   selector: 'app-corporation-setting',
@@ -7,9 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CorporationSettingComponent implements OnInit {
 
-  constructor() { }
+  init: boolean = false;
+  corporationInfo: SystemInfo = new SystemInfo();
 
-  ngOnInit() {
+  constructor(private authService: AuthService, private httpClientHelper: HttpclienthelperService) {
+    //this.corporationInfo = authService.systemInfo;
   }
 
+  ngOnInit() {
+    this.getSystemSetInfo();
+  }
+
+  private getSystemSetInfo() {
+    let url: string = "api/systeminfo/system-set-info/";
+
+    this.httpClientHelper.apiGet<Result>(url, null, this.authService.token).subscribe(next => {
+      if (next.state == 0) {
+        this.corporationInfo = next.data;
+
+        this.init = true;
+      }
+    }, error => {
+      this.init = false;
+    });
+  }
+
+  onSubmit() {
+    let url: string = "api/Privilege/auth/";
+
+    //this.httpClientHelper.apiPost()
+  }
 }

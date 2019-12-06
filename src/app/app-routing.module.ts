@@ -9,7 +9,7 @@ import { GuideComponent } from './layout-framework/guide/guide.component';
 
 const routes: Routes = [{
   path: "home",
-  //canActivate: [AuthGuard],
+  canActivate: [AuthGuard],
   component: ErpHomeComponent,
   data: {
     breadcrumb: '首页'

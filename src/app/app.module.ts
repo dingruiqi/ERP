@@ -11,7 +11,7 @@ import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
-import { NzTabsModule } from 'ng-zorro-antd/tabs';
+//import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { IconDefinition } from '@ant-design/icons-angular';
 import { NzIconModule, NZ_ICON_DEFAULT_TWOTONE_COLOR, NZ_ICONS } from 'ng-zorro-antd/icon';
 // 引入你需要的图标，比如你需要 fill 主题的 AccountBook Alert 和 outline 主题的 Alert，推荐 ✔️
@@ -48,7 +48,7 @@ const ngZorroConfig: NzConfig = {
     NzButtonModule,
     NzEmptyModule,
     NzAvatarModule,
-    NzTabsModule,
+    //NzTabsModule,
     NzIconModule,
     NzBreadCrumbModule,
     BrowserAnimationsModule,

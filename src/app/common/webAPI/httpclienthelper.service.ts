@@ -27,7 +27,7 @@ export class HttpclienthelperService {
     }
 
     if (token != null && token != undefined) {
-      httpOptions.headers.set('Authorization', HttpclienthelperService.JWTS_Authentication_Scheme + token);
+      httpOptions.headers = httpOptions.headers.set('Authorization', HttpclienthelperService.JWTS_Authentication_Scheme + token);
     }
 
     if (headPara != null && headPara != undefined) {
@@ -54,7 +54,7 @@ export class HttpclienthelperService {
       params: new HttpParams()
     }
     if (token != null && token != undefined) {
-      httpOptions.headers.set('Authorization', HttpclienthelperService.JWTS_Authentication_Scheme + token);
+      httpOptions.headers = httpOptions.headers.set('Authorization', HttpclienthelperService.JWTS_Authentication_Scheme + token);
     }
     if (headPara != null && headPara != undefined) {
       for (let p in headPara) {
