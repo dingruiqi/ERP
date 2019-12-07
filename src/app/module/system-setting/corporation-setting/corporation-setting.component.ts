@@ -23,7 +23,7 @@ export class CorporationSettingComponent implements OnInit {
   }
 
   private getSystemSetInfo() {
-    let url: string = "api/systeminfo/system-set-info/";
+    let url: string = "api/systeminfo/";
 
     this.httpClientHelper.apiGet<Result>(url, null, this.authService.token).subscribe(next => {
       if (next.state == 0) {
@@ -37,8 +37,17 @@ export class CorporationSettingComponent implements OnInit {
   }
 
   onSubmit() {
-    let url: string = "api/Privilege/auth/";
+    let url: string = "api/systeminfo/";
 
-    //this.httpClientHelper.apiPost()
+    this.httpClientHelper.apiPut<Result>(url, null, this.corporationInfo, this.authService.token).subscribe(next => {
+      if (next.state!=0){
+        //失败了
+      }
+      else{
+        //成功了
+      }
+    }, error => {
+
+    });
   }
 }

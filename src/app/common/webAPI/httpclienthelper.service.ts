@@ -17,6 +17,32 @@ export class HttpclienthelperService {
 
   constructor(private httpClient: HttpClient) { }
 
+  apiPut<T>(url, headPara?: { [key: string]: any; }, bodyPara?: any, token?: string): Observable<T> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'ResponseType': 'json',
+      }),
+      params: new HttpParams()
+    }
+
+    if (token != null && token != undefined) {
+      httpOptions.headers = httpOptions.headers.set('Authorization', HttpclienthelperService.JWTS_Authentication_Scheme + token);
+    }
+
+    if (headPara != null && headPara != undefined) {
+      for (let p in headPara) {
+        httpOptions.params = httpOptions.params.set(p, headPara[p]);
+      }
+    }
+
+    return this.httpClient.put<T>(url, bodyPara, httpOptions)
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(this.handleError)
+      );
+  }
+
   apiPost<T>(url, headPara?: { [key: string]: any; }, bodyPara?: any, token?: string): Observable<T> {
     const httpOptions = {
       headers: new HttpHeaders({
