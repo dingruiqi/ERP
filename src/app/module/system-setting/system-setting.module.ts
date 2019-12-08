@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
 //import { NzFormModule } from 'ng-zorro-antd/form';
 //mport { NzInputModule } from 'ng-zorro-antd/input';
 import { SystemSettingRoutingModule } from './system-setting-routing.module';
@@ -13,6 +14,7 @@ import { CorporationSettingComponent } from './corporation-setting/corporation-s
   imports: [
     CommonModule,
     NzTabsModule,
+    NzAlertModule,
     //NzFormModule,
     //NzInputModule,
     FormsModule,

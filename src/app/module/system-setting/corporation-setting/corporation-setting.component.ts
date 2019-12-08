@@ -12,6 +12,9 @@ import { Result } from 'src/app/model/result';
 export class CorporationSettingComponent implements OnInit {
 
   init: boolean = false;
+  initResult: string;
+  save: boolean = true;
+  saveResult: string;
   corporationInfo: SystemInfo = new SystemInfo();
 
   constructor(private authService: AuthService, private httpClientHelper: HttpclienthelperService) {
@@ -31,8 +34,13 @@ export class CorporationSettingComponent implements OnInit {
 
         this.init = true;
       }
+      else {
+        this.init = false;
+        this.initResult = next.message;
+      }
     }, error => {
       this.init = false;
+      this.initResult = error;
     });
   }
 
@@ -40,14 +48,19 @@ export class CorporationSettingComponent implements OnInit {
     let url: string = "api/systeminfo/";
 
     this.httpClientHelper.apiPut<Result>(url, null, this.corporationInfo, this.authService.token).subscribe(next => {
-      if (next.state!=0){
+      if (next.state != 0) {
         //失败了
+        this.save = false;
+        this.saveResult = next.message;
       }
-      else{
+      else {
         //成功了
+        this.save = true;
+        this.saveResult = "保存系统资料成功！";
       }
     }, error => {
-
+      this.save = false;
+      this.saveResult = error;
     });
   }
 }

@@ -52,6 +52,12 @@
                             [disabled]="!corporationForm.valid">保存</button></div>
 
                 </div>
+                <div *ngIf="!init" class="result">
+                    <nz-alert nzBanner nzType="error" nzMessage=123123{{initResult}}></nz-alert>
+                </div>
+                <div *ngIf="!save" class="result">
+                    <nz-alert nzType="error" nzMessage=456{{saveResult}} nzShowIcon></nz-alert>
+                </div>
             </form>
         </nz-tab>
         <nz-tab nzTitle="企业Logo">

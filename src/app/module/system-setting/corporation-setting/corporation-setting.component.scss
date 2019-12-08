@@ -1,5 +1,10 @@
-.form-group{
-    .col-form-label{
+.form-group {
+    .col-form-label {
         text-align: right;
+    }
+
+    .result {
+        display        : flex;
+        justify-content: center;
     }
 }
