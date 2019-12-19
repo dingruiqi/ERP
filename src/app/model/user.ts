@@ -6,7 +6,7 @@ export class User {
     userID: number;
     //登录名字
     loginName: string;
-    password: string;
+    //password: string;//要保存在localstorage，所以不存密码
     userName: string;
     //手机号
     mobileNum: string;

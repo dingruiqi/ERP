@@ -33,35 +33,27 @@
                         </div>
                     </div>
 
-                    <div class="form-row form-group justify-content-around">
-                        <label class="col-form-label col-lg-1 col-2" for="adminName"><span
-                                class="text-danger">*</span>管理员名字</label>
-                        <div class="col-3">
-                            <input class="form-control" id="adminName" name="adminName"
-                                [(ngModel)]='corporationInfo.adminName' #corporationNameInput="ngModel" required
-                                minlength="1" maxlength="15">
-                        </div>
-
+                    <!-- <div class="form-row form-group justify-content-around">
                         <label class="col-form-label col-lg-1 col-2 offset-lg-4" for="corporationWeb">网址</label>
                         <div class="col-3">
                             <input class="form-control" id="corporationWeb" name="corporationWeb"
                                 [(ngModel)]='corporationInfo.webAddress' #corporationWebInput="ngModel">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-row justify-content-center"><button type="submit" class="btn btn-success"
                             [disabled]="!corporationForm.valid">保存</button></div>
 
                 </div>
                 <div *ngIf="!init" class="result">
-                    <nz-alert nzBanner nzType="error" nzMessage=123123{{initResult}}></nz-alert>
+                    <nz-alert nzType="error" nzMessage={{initResult}} nzShowIcon></nz-alert>
                 </div>
                 <div *ngIf="!save" class="result">
-                    <nz-alert nzType="error" nzMessage=456{{saveResult}} nzShowIcon></nz-alert>
+                    <nz-alert nzType="error" nzMessage={{saveResult}} nzShowIcon></nz-alert>
                 </div>
             </form>
         </nz-tab>
-        <nz-tab nzTitle="企业Logo">
+        <!-- <nz-tab nzTitle="企业Logo">
             Content of Tab Pane 2
-        </nz-tab>
+        </nz-tab> -->
     </nz-tabset>
 </div>

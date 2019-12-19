@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   userName: string;
   password: string;
 
+  remember: boolean;
+
   loginErrorMessage: string;
 
   constructor(private titleService: Title,
@@ -24,7 +26,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     //this.message = 'Trying to log in ...';
 
-    this.authService.login(this.userName, this.password).subscribe(() => {
+    this.authService.login(this.userName, this.password, this.remember).subscribe(() => {
       //this.setMessage();
       if (this.authService.isLoggedIn) {
         //还要加上公司信息

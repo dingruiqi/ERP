@@ -19,6 +19,10 @@ export class ErpHomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    //判断是否要自动登陆
+    if (this.authService.needAutoLogin) {
+      this.authService.autoLogin();
+    }
   }
 
 

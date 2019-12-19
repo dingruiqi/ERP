@@ -2,7 +2,7 @@
   <div class="h3">产销存系统</div>
   <form class="form-signin" #signinForm="ngForm" (ngSubmit)="onSubmit(signinForm)">
     <div class="login-img">
-      <img src="assets/image/Login.jpg" alt="" height="100%">
+      <img src="assets/image/login.jpg" alt="" height="100%">
     </div>
 
     <h1 class="h3 mb-3 font-weight-normal">请&nbsp;&nbsp;登&nbsp;&nbsp;录</h1>
@@ -36,7 +36,7 @@
     </div> -->
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me">记住我
+        <input type="checkbox" value="remember-me" name="remember" [(ngModel)]="remember">记住我
       </label>
     </div>
     <div *ngIf="loginErrorMessage!=null && loginErrorMessage!=undefined && loginErrorMessage!=''">

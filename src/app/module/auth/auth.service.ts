@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/model/user';
 //import { SystemInfo } from 'src/app/model/system-info';
 import { HttpclienthelperService } from 'src/app/common/webAPI/httpclienthelper.service';
 import { Result } from 'src/app/model/result';
 import { CryptogramHelpService } from 'src/app/common/cryptogram/cryptogram-help.service';
+import { LocalStorageHelperService } from 'src/app/common/local-storage/local-storage-helper.service';
+import { JwtHelperService } from "@auth0/angular-jwt";
+
+const helper = new JwtHelperService();
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +26,60 @@ export class AuthService {
 
   message: string;
 
-  constructor(private httpClientHelper: HttpclienthelperService, private cryptogramHelper: CryptogramHelpService) { }
+  constructor(private httpClientHelper: HttpclienthelperService,
+    private cryptogramHelper: CryptogramHelpService,
+    private localStorageService: LocalStorageHelperService) {
 
-  login(userName: string, password: string): Observable<boolean> {
+    if (!this.isLoggedIn) {
+      let userID: number = this.localStorageService.getObject("user");
+      let token: string = this.localStorageService.get("token");
+      if (token != undefined && token != null && token != "") {
+        //判断是否过期
+        //const decodedToken = helper.decodeToken(token);
+        //const expirationDate = helper.getTokenExpirationDate(token);
+        const isExpired = helper.isTokenExpired(token);
+
+        if (!isExpired) {
+          this.token = token;
+          this.isLoggedIn = true;
+          this.user.userID = userID;
+        }
+      }
+    }
+
+  }
+
+  get needAutoLogin() {
+    return this.isLoggedIn
+      && this.user.userID != 0
+      && this.user.currentLoginTime == undefined;
+  }
+
+  autoLogin() {
+    this.initUser(this.user.userID);
+  }
+
+  private initUser(userID: number) {
+    //只有当使用token登陆时，需要当前页面主动去初始化用户信息
+    let url: string = `api/Privilege/user/${userID}/`;
+    try {
+      this.httpClientHelper.apiGet<Result>(url, null, this.token).subscribe(next => {
+        if (next.state == 0) {
+          this.user = next.data;
+        }
+        else {
+          this.logout();
+        }
+      }, error => {
+        console.error("initUser" + error);
+        this.logout();
+      })
+    } catch (e) {
+      console.error("initUser" + e);
+    }
+  }
+
+  login(userName: string, password: string, remember: boolean): Observable<boolean> {
     let url: string = "api/Privilege/auth/";
 
     password = this.cryptogramHelper.md5Hash(password);
@@ -36,10 +91,24 @@ export class AuthService {
             this.isLoggedIn = true;
             this.user = next.data.user;
             this.token = next.data.token;
+            // if (this.token != null || this.token != undefined) {
+            //   //自动登陆时，使用本地的token，并且不覆盖
+            //   this.token = next.data.token;
+            // }
+            if (remember) {
+              this.localStorageService.setObject("user", this.user.userID);
+              this.localStorageService.set("token", this.token);
+            }
+            else {
+              this.localStorageService.removeAll();
+            }
           }
           else {
             //observer.error(next.message);
             this.isLoggedIn = false;
+            this.token = null;
+
+            this.localStorageService.removeAll();
           }
 
           this.message = next.message;
@@ -71,5 +140,7 @@ export class AuthService {
     this.user = null;
     this.message = "";
     this.redirectUrl = "";
+
+    this.localStorageService.removeAll();
   }
 }
