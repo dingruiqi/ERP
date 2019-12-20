@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/module/auth/auth.service';
 import { Router } from '@angular/router';
+import { error } from 'protractor';
 
 @Component({
   selector: 'app-erp-home',
@@ -20,8 +21,16 @@ export class ErpHomeComponent implements OnInit {
 
   ngOnInit() {
     //判断是否要自动登陆
-    if (this.authService.needAutoLogin) {
-      this.authService.autoLogin();
+    if (!this.authService.hasInit) {
+      this.authService.initUser().subscribe(next => {
+        if (!next) {
+          this.authService.logout();
+          this.router.navigateByUrl("/login");
+        }
+      }, error => {
+        this.authService.logout();
+        this.router.navigateByUrl("/login");
+      });
     }
   }
 

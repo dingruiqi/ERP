@@ -36,7 +36,7 @@ export class AuthService {
       if (token != undefined && token != null && token != "") {
         //判断是否过期
         //const decodedToken = helper.decodeToken(token);
-        //const expirationDate = helper.getTokenExpirationDate(token);
+        //const expirationDate = helper.getTokenExpirationDate(token).toUTCString();
         const isExpired = helper.isTokenExpired(token);
 
         if (!isExpired) {
@@ -44,39 +44,51 @@ export class AuthService {
           this.isLoggedIn = true;
           this.user.userID = userID;
         }
+        else {
+          this.localStorageService.removeAll();
+        }
       }
     }
 
   }
 
-  get needAutoLogin() {
-    return this.isLoggedIn
+  get hasInit() {
+    return !(this.isLoggedIn
       && this.user.userID != 0
-      && this.user.currentLoginTime == undefined;
+      && this.user.currentLoginTime == undefined);
   }
 
-  autoLogin() {
-    this.initUser(this.user.userID);
-  }
-
-  private initUser(userID: number) {
-    //只有当使用token登陆时，需要当前页面主动去初始化用户信息
-    let url: string = `api/Privilege/user/${userID}/`;
-    try {
-      this.httpClientHelper.apiGet<Result>(url, null, this.token).subscribe(next => {
-        if (next.state == 0) {
-          this.user = next.data;
-        }
-        else {
-          this.logout();
-        }
-      }, error => {
-        console.error("initUser" + error);
-        this.logout();
-      })
-    } catch (e) {
-      console.error("initUser" + e);
+  initUser(userID: number = null): Observable<boolean> {
+    //只有当使用token登陆时，需要当前页面主动去初始化用户信息 
+    if (userID == null) {
+      userID = this.user.userID;
     }
+    let url: string = `api/Privilege/user/${userID}/`;
+    return Observable.create(observer => {
+      try {
+        this.httpClientHelper.apiGet<Result>(url, null, this.token).subscribe(next => {
+          if (next.state == 0) {
+            this.user = next.data;
+          }
+          else {
+            //this.logout();
+          }
+
+          observer.next(true);
+          observer.complete();
+        }, error => {
+          console.error("initUser" + error);
+          //this.logout();
+          observer.error(false);
+          observer.complete();
+        })
+      } catch (e) {
+        console.error("initUser" + e);
+
+        observer.error(false);
+        observer.complete();
+      }
+    });
   }
 
   login(userName: string, password: string, remember: boolean): Observable<boolean> {
