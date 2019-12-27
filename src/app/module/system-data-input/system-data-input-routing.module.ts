@@ -11,14 +11,36 @@ import { AuthGuard } from '../auth/auth.guard';
 const routes: Routes = [
   {
     path: "", component: SystemDataHomeComponent,
-    //canActivate: [AuthGuard],
-    //canActivateChild: [AuthGuard],
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
     children: [
-      { path: "productlist", component: ProductInfoComponent },
-      { path: "addproduct", component: AddProductComponent },
+      // {
+      //   path: "productlist",
+      //   component: ProductInfoComponent,
+      //   data: {
+      //     breadcrumb: '商品信息'
+      //   }
+      // },
+      //{ path: "addproduct", component: AddProductComponent },
       { path: "addproducttype", component: AddProductTypeComponent },
       { path: "addproductunit", component: AddProductUnitComponent },
     ]
+  },
+  {
+    path: "productlist",
+    canActivate: [AuthGuard],
+    component: ProductInfoComponent,
+    data: {
+      breadcrumb: '商品信息'
+    }
+  },
+  {
+    path: "addproduct",
+    canActivate: [AuthGuard],
+    component: AddProductComponent,
+    data: {
+      breadcrumb: '新增商品'
+    }
   },
 ];
 

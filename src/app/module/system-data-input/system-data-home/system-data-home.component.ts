@@ -8,16 +8,17 @@ import { Router } from '@angular/router';
 })
 export class SystemDataHomeComponent implements OnInit {
 
-  constructor(private router:Router) { }
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  go(){
-    this.router.navigate([{outlets: {aux1: 'addproductunit'}}]);
+  go() {
+    this.router.navigate([{ outlets: { aux1: 'addproductunit' } }]);
   }
 
-  go2(){
+  go2() {
     this.router.navigateByUrl('home/systemdatahome/addproductunit');
   }
 }

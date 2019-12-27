@@ -107,19 +107,43 @@
             <li class="nav-item">
                 <a class="nav-link">
                     <button class="btn btn-light bg-transparent menu-item">
-                        <span class="iconfont iconziliaoku"></span>
-                        <div class="title">基础资料</div>
+                        <div class="iconfont iconziliaoku"></div>
+                        <span class="title">基础资料</span>
+                        <span class="arrow"></span>
                     </button>
                 </a>
+                <div class="second-menu second-menu-sysdata">
+                    <div class="container">
+                        <div class="row second-menu-title">
+                            <div class="col">商品</div>
+                        </div>
+                        <div class="row second-menu-content">
+                            <div class="col-8"><a [routerLink]="['systemdatahome/productlist']">商品</a></div>
+                            <div class="col"><a><span class="iconfont icontianjia text-primary"></span></a></div>
+                        </div>
+                        <div class="row second-menu-title">
+                            <div class="col">员工管理</div>
+                            <div class="col"></div>
+                        </div>
+                        <div class="row second-menu-content">
+                            <div class="col">员工管理</div>
+                            <div class="col"></div>
+                        </div>
+                        <div class="row second-menu-content">
+                            <div class="col">权限管理</div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link">
                     <button class="btn btn-light bg-transparent menu-item">
-                        <span class="iconfont iconorder-setting"></span>
-                        <div class="title">系统设置</div>
+                        <div class="iconfont iconorder-setting"></div>
+                        <span class="title">系统设置</span>
+                        <span class="arrow"></span>
                     </button>
                 </a>
-                <div class="arrow"></div>
                 <div class="second-menu second-menu-sysset">
                     <div class="container">
                         <div class="row second-menu-title">

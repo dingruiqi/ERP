@@ -1,9 +1,57 @@
 <p>system-data-home works!</p>
-<a routerLink="productlist" routerLinkActive="active">Crisis Center</a>
+<div class="row">
+    <div class="col-md-4 col-lg-2">
+        <nz-card routerLink="productlist" nzHoverable style="width:240px" [nzCover]="productInfoCoverTemplate">
+            <nz-card-meta nzTitle="商品信息" nzDescription="查看当前系统内的库存商品"></nz-card-meta>
+        </nz-card>
+        <ng-template #productInfoCoverTemplate>
+            <img alt="productinfo" src="assets/image/productinfo.jpg" />
+        </ng-template>
+    </div>
+    <div class="col-md-4 col-lg-2">
+        <nz-card routerLink="productlist" nzHoverable style="width:240px" [nzCover]="productInfoCoverTemplate">
+            <nz-card-meta nzTitle="商品信息" nzDescription="查看当前系统内的库存商品"></nz-card-meta>
+        </nz-card>
+        <ng-template #productInfoCoverTemplate>
+            <img alt="productinfo" src="assets/image/productinfo.jpg" />
+        </ng-template>
+    </div>
+    <div class="col-md-4 col-lg-2">
+        <nz-card routerLink="productlist" nzHoverable style="width:240px" [nzCover]="productInfoCoverTemplate">
+            <nz-card-meta nzTitle="商品信息" nzDescription="查看当前系统内的库存商品"></nz-card-meta>
+        </nz-card>
+        <ng-template #productInfoCoverTemplate>
+            <img alt="productinfo" src="assets/image/productinfo.jpg" />
+        </ng-template>
+    </div>
+    <div class="col-md-4 col-lg-2">
+        <nz-card routerLink="productlist" nzHoverable style="width:240px" [nzCover]="productInfoCoverTemplate">
+            <nz-card-meta nzTitle="商品信息" nzDescription="查看当前系统内的库存商品"></nz-card-meta>
+        </nz-card>
+        <ng-template #productInfoCoverTemplate>
+            <img alt="productinfo" src="assets/image/productinfo.jpg" />
+        </ng-template>
+    </div>
+    <div class="col-md-4 col-lg-2">
+        <nz-card routerLink="productlist" nzHoverable style="width:240px" [nzCover]="productInfoCoverTemplate">
+            <nz-card-meta nzTitle="商品信息" nzDescription="查看当前系统内的库存商品"></nz-card-meta>
+        </nz-card>
+        <ng-template #productInfoCoverTemplate>
+            <img alt="productinfo" src="assets/image/productinfo.jpg" />
+        </ng-template>
+    </div>
+    <div class="col-md-4 col-lg-2">
+        <nz-card routerLink="productlist" nzHoverable style="width:240px" [nzCover]="productInfoCoverTemplate">
+            <nz-card-meta nzTitle="商品信息" nzDescription="查看当前系统内的库存商品"></nz-card-meta>
+        </nz-card>
+        <ng-template #productInfoCoverTemplate>
+            <img alt="productinfo" src="assets/image/productinfo.jpg" />
+        </ng-template>
+    </div>
+</div>
+<a routerLink="addproducttype" routerLinkActive="active">addproducttype</a>
 <br>
-<a routerLink="addproducttype" routerLinkActive="active">Heroes</a>
-<br>
-<a routerLink="addproduct" routerLinkActive="active">Admin</a>
+<a routerLink="addproduct" routerLinkActive="active">addproduct</a>
 <br>
 
 <div>
@@ -11,6 +59,6 @@
 </div>
 <br>
 <a [routerLink]="[{outlets:{ aux1: ['addproductunit'] } }]">Contact</a>
-<button  (click)="go()">Contact1</button >
-    <button  (click)="go2()">Contact2</button >
+<button (click)="go()">Contact1</button>
+<button (click)="go2()">Contact2</button>
 <router-outlet name="aux1"></router-outlet>

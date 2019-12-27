@@ -72,30 +72,30 @@
     .nav-item {
 
         .arrow {
-            position    : relative;
-            bottom      : 3rem;
-            left        : 3.5rem;
-            width       : 0;
-            height      : 0;
-            border-width: 0.5rem;
-            border-style: solid;
-            border-color: transparent #e9eef2 transparent transparent;
-            display     : none;
+            position      : relative;
+            //float       : left;
+            bottom        : 3.7rem;
+            left          : 2.7rem;
+            width         : 0;
+            height        : 0;
+            border-width  : 0.5rem;
+            border-style  : solid;
+            border-color  : transparent #247AEC transparent transparent;
+            display       : none;
         }
 
         .second-menu {
-            position    : absolute;
-            top         : 25rem;
-            left        : 4.625rem;
-            display     : none;
-            background  : #e9eef2;
-            font-size   : 0.075rem;
-            border      : 1px solid #ccd1d5;
-            border-width: 0 1px 1px 0;
-            border-top  : 3px solid #29794b;
-            box-shadow  : 3px 3px 10px rgba(0, 0, 0, 0.3);
-            overflow    : hidden;
-            line-height : 2rem;
+            position      : absolute;
+            display       : none;
+            background    : #e9eef2;
+            font-size     : 0.075rem;
+            border        : 1px solid #ccd1d5;
+            border-width  : 0 1px 1px 0;
+            //border-top  : 3px solid #29794b;
+            border-left   : 3px solid #247AEC;
+            box-shadow    : 3px 3px 10px rgba(0, 0, 0, 0.3);
+            overflow      : hidden;
+            line-height   : 2rem;
 
             .second-menu-title {
                 font-size    : 0.85rem;
@@ -109,7 +109,21 @@
         }
 
         .second-menu-sysset {
+            top  : 25rem;
+            left : 4.525rem;
             width: 300px;
+            z-index: 1000;
+        }
+
+        .second-menu-sysdata {
+            top  : 23rem;
+            left : 4.525rem;
+            width: 200px;
+            z-index: 1000;
+
+            .iconfont {
+                font-size: 1rem;
+            }
         }
     }
 

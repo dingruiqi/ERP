@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 import { SystemDataInputRoutingModule } from './system-data-input-routing.module';
 import { ProductInfoComponent } from './product-info/product-info.component';
@@ -13,6 +14,7 @@ import { SystemDataHomeComponent } from './system-data-home/system-data-home.com
   declarations: [ProductInfoComponent, AddProductComponent, AddProductTypeComponent, AddProductUnitComponent, SystemDataHomeComponent],
   imports: [
     CommonModule,
+    NzCardModule,
     SystemDataInputRoutingModule
   ]
 })
