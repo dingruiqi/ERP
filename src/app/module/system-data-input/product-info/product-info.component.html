@@ -26,7 +26,7 @@
             <div>
                 <nz-tree [nzData]="nodes" nzShowIcon [nzExpandedIcon]="expandedIconTpl">
                     <ng-template #expandedIconTpl let-node>
-                        <i nz-icon [nzType]="node.isExpanded ? 'folder-open' : 'folder'"
+                        <i nz-icon [nzType]="node.isExpanded ? 'folder-open' : 'folder'" 
                             class="ant-tree-switcher-line-icon"></i>
                     </ng-template>
                 </nz-tree>
