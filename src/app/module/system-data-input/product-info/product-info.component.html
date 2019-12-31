@@ -1,3 +1,39 @@
-<div>
-    <button class="btn btn-primary btn-sm" routerLink="../addproduct">新增商品</button>
+<nav class="navbar navbar-light bg-light">
+    <div>
+        <button class="btn btn-primary btn-sm" routerLink="../addproduct">新增商品</button>
+    </div>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="搜索关键字" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+    </form>
+</nav>
+
+<div class="bg-light production">
+    <div class="tableheader">
+        <div class="producttypecell">
+            <div class="cellcontent">
+                商品分类
+            </div>
+        </div>
+        <div class="productcell">
+            <div class="cellcontent">
+                所属分类
+            </div>
+        </div>
+    </div>
+    <div class="tablebody">
+        <div class="producttypecell">
+            <div>
+                <nz-tree [nzData]="nodes" nzShowIcon [nzExpandedIcon]="expandedIconTpl">
+                    <ng-template #expandedIconTpl let-node>
+                        <i nz-icon [nzType]="node.isExpanded ? 'folder-open' : 'folder'"
+                            class="ant-tree-switcher-line-icon"></i>
+                    </ng-template>
+                </nz-tree>
+            </div>
+        </div>
+        <div class="productcell">
+            fffff
+        </div>
+    </div>
 </div>

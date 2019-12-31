@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzTreeModule } from 'ng-zorro-antd/tree';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 import { SystemDataInputRoutingModule } from './system-data-input-routing.module';
 import { ProductInfoComponent } from './product-info/product-info.component';
@@ -15,6 +17,8 @@ import { SystemDataHomeComponent } from './system-data-home/system-data-home.com
   imports: [
     CommonModule,
     NzCardModule,
+    NzTreeModule,
+    NzIconModule,
     SystemDataInputRoutingModule
   ]
 })

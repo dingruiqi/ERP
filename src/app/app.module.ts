@@ -15,7 +15,7 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { IconDefinition } from '@ant-design/icons-angular';
 import { NzIconModule, NZ_ICON_DEFAULT_TWOTONE_COLOR, NZ_ICONS } from 'ng-zorro-antd/icon';
 // 引入你需要的图标，比如你需要 fill 主题的 AccountBook Alert 和 outline 主题的 Alert，推荐 ✔️
-import { CloseOutline, HomeOutline } from '@ant-design/icons-angular/icons';
+import { CloseOutline, HomeOutline, FolderOpenOutline, FolderOutline } from '@ant-design/icons-angular/icons';
 import { NzConfig, NZ_CONFIG } from 'ng-zorro-antd';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WelcomeComponent } from './layout-framework/welcome/welcome.component';
 import { GuideComponent } from './layout-framework/guide/guide.component';
 
-const icons: IconDefinition[] = [CloseOutline, HomeOutline];
+const icons: IconDefinition[] = [CloseOutline, HomeOutline, FolderOpenOutline, FolderOutline];
 
 const ngZorroConfig: NzConfig = {
   // 注意组件名称没有 nz 前缀

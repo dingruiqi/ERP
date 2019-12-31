@@ -1,0 +1,31 @@
+.production {
+    margin-top: 0.5rem;
+}
+
+.cellcontent {
+    margin-left: 10px;
+}
+
+.tableheader {
+    line-height  : 3rem;
+    border-bottom: solid 1px #ced4da;
+}
+
+.tablebody {
+    line-height: 1.5rem;
+    height     : 100%;
+    width      : 100%;
+
+
+}
+
+.producttypecell {
+    border-right: solid 1px #ced4da;
+    display     : inline-block;
+    width       : 20%;
+}
+
+.productcell {
+    border-left: solid 1px #ced4da;
+    display    : inline-block;
+}
